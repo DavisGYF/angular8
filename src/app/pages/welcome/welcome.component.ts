@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 @Component({
   selector: "app-welcome",
   templateUrl: "./welcome.component.html",
-  styleUrls: ["./welcome.component.less"]
+  styleUrls: ["./welcome.component.less"],
 })
 export class WelcomeComponent implements OnInit {
   arr = [1, 2, 3, 2, 1];
@@ -46,7 +46,7 @@ export class WelcomeComponent implements OnInit {
       // arr.push(this.arr[i]);
     } */
 
-    console.log("arr1---------------", arr);
+    // console.log("arr1---------------", arr);
 
     const newArr = [];
 
@@ -95,7 +95,7 @@ export class WelcomeComponent implements OnInit {
       newArr.push(arrTemp[i]);
     }
 
-    console.log("newArr---", newArr);
+    // console.log("newArr---", newArr);
 
     // 方法三 ES6新的数据结构Set，类似于数组，它的元素都是唯一的。
     // console.log("ES6新的数据结构Set---", [...new Set(this.arr)]);
@@ -106,21 +106,21 @@ export class WelcomeComponent implements OnInit {
     // 方法一 利用数组与字符串的隐式转换，使用+符号链接一个对象，javascript会默认调用toString方法转为字符串，再使用字符串分割成字符串数组，最后转成数值形数组
 
     const oneArrString = this.arrs + ""; // "222", "333", "444", "55", "66", "77", "11", "1", "21", "22", "3"
-    const oneStringArr = oneArrString.split(",").map(v => Number(v));
+    const oneStringArr = oneArrString.split(",").map((v) => Number(v));
 
     // 方法二 两纬数组可以 多维不行
     const concatApplyArr = Array.prototype.concat.apply([], this.arrs); // [222, 333, 444, 55, 66, 77, 11, Array(1), Array(2), 3]
 
     // 方法三 推荐使用，经测试这个是执行效率最高的。
 
-    console.log("-- arrUtils---", this.arrUtils(this.arrs));
+    // console.log("-- arrUtils---", this.arrUtils(this.arrs));
   }
 
   arrUtils(arr) {
     let arrs = [];
 
-    const arrTest = function(arr) {
-      arr.forEach(item => {
+    const arrTest = function (arr) {
+      arr.forEach((item) => {
         item instanceof Array ? arrTest(item) : arrs.push(item);
       });
     };

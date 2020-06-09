@@ -1,16 +1,22 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName" required />
-  </label>
+⚠️如果本地 有定义组建selector 名字叫form 那下面 form标签优先 寻找本地的
+然后再是引入的这个基本form 注意⚠️
 
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName" />
-  </label>
+<form nz-form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>First Name</nz-form-label>
+    <nz-form-control nzSpan="10" nzErrorTip="Please input your username!">
+      <input nz-input type="text" formControlName="firstName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="4" nzRequired>Last Name</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <input type="text" formControlName="lastName" required />
+    </nz-form-control>
+  </nz-form-item>
 
-  <div formGroupName="address">
-    <h3>Address</h3>
+  <div formGroupName="address" class="borderPink">
+    <h3>Address 嵌套表单</h3>
 
     <label>
       Street:
@@ -33,8 +39,8 @@
     </label>
   </div>
 
-  <div formArrayName="aliases">
-    <h3>Aliases</h3>
+  <div formArrayName="aliases" class="borderPink">
+    <h3>表单数组FormArray Aliases 绰号</h3>
     <button (click)="addAlias()">Add Alias</button>
 
     <div *ngFor="let alias of aliases.controls; let i = index">
@@ -46,7 +52,9 @@
     </div>
   </div>
 
-  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <div class="textCenter">
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  </div>
 </form>
 
 <hr />
@@ -55,6 +63,6 @@
 
 <p>Form Status: {{ profileForm.status }}</p>
 
-<p>
+<p nzFlex>
   <button (click)="updateProfile()">Update Profile</button>
 </p>
