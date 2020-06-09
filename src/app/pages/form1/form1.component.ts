@@ -1,23 +1,23 @@
-// import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
-// @Component({
-//   selector: "app-form1",
-//   templateUrl: "./form1.component.html",
-//   styleUrls: ["./form1.component.less"],
-// })
-// export class Form1Component implements OnInit {
-//   listOfOption = ["Apples", "Nails", "Bananas", "Helicopters"];
-//   listOfSelectedValue: string[] = [];
+@Component({
+  selector: "app-form1",
+  templateUrl: "./form1.component.html",
+  styleUrls: ["./form1.component.less"],
+})
+export class Form1Component implements OnInit {
+  listOfOption = ["Apples", "Nails", "Bananas", "Helicopters"];
+  listOfSelectedValue: string[] = [];
 
-//   isNotSelected(value: string): boolean {
-//     return this.listOfSelectedValue.indexOf(value) === -1;
-//   }
+  isNotSelected(value: string): boolean {
+    return this.listOfSelectedValue.indexOf(value) === -1;
+  }
 
-//   constructor() {}
+  constructor() {}
 
-//   ngOnInit() {}
-// }
-
+  ngOnInit() {}
+}
+/* 
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
@@ -89,3 +89,4 @@ export class Form1Component implements OnInit {
     });
   }
 }
+ */
